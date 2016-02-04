@@ -1,4 +1,4 @@
-# JRY
+# L1ML
 This is an group project for [CS140B](http://cs140.org), Natural Language Annotation for Machine Learning, under Prof. James Pustejovsky, in the spring 2016 semester.
 
 ## Team members
