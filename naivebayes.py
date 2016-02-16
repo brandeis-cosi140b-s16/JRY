@@ -248,7 +248,7 @@ if __name__ == '__main__':
             
             num_files = len(classified_as[lang])
             
-            f.write('{0}: {1} files in test set\n----------------\n'.format(lang,num_files))
+            print('{0}: {1} files in test set\n-------------------------\n'.format(lang,num_files),file=f)
             prob_per_lang = {
                 'KOR':0,
                 'DEU':0,
@@ -269,4 +269,4 @@ if __name__ == '__main__':
                 prob_per_lang[file[1][0][0]] += 1
             
             for lang in prob_per_lang:
-                f.write('{0}: {1:3}/{2:3} {3:.5%}\n'.format(lang,prob_per_lang[lang],num_files,(prob_per_lang[lang]/num_files)))
+                print('{0}: {1:3}/{2:3} {3:>.5%}\n'.format(lang,prob_per_lang[lang],num_files,(prob_per_lang[lang]/num_files)),file=f)
