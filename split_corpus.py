@@ -39,4 +39,49 @@ with open ('toefl11/data/text/index.csv') as csvfile:
                 p8.append(row)
 
 print('Prompt 1: {0}\tPrompt 2: {1}\tPrompt 3: {2}\tPrompt 4: {3}'.format(len(p1), len(p2),len(p3),len(p4)) )
-print('Prompt 5: {0}\tPrompt 6: {1}\tPrompt 7: {2}\tPrompt 8: {3}'.format(len(p5), len(p6),len(p7),len(p8)) )
+print('Prompt 5: {0}\tPrompt 6: {1}\tPrompt 7: {2}\tPrompt 8: {3}\n'.format(len(p5), len(p6),len(p7),len(p8)) )
+
+# get L1
+all = [p1,p2,p3,p4,p5,p6,p7,p8]
+for i in range (1,9):
+    by_lang = {
+        'KOR':0,
+        'DEU':0,
+        'TUR':0,
+        'ZHO':0,
+        'TEL':0,
+        'ARA':0,
+        'SPA':0,
+        'HIN':0,
+        'JPN':0,
+        'FRA':0,
+        'ITA':0}
+    print ('Prompt {0}: {1}\n----------'.format(i,len(all[i-1])))
+    medium_prompt = all[i-1]
+    for entry in medium_prompt:
+        if entry[2] == 'KOR':
+            by_lang['KOR'] += 1
+        elif entry[2] == 'DEU':
+            by_lang['DEU'] += 1
+        elif entry[2] == 'TUR':
+            by_lang['TUR'] += 1
+        elif entry[2] == 'ZHO':
+            by_lang['ZHO'] += 1
+        elif entry[2] == 'TEL':
+            by_lang['TEL'] += 1
+        elif entry[2] == 'ARA':
+            by_lang['ARA'] += 1
+        elif entry[2] == 'SPA':
+            by_lang['SPA'] += 1
+        elif entry[2] == 'HIN':
+            by_lang['HIN'] += 1
+        elif entry[2] == 'JPN':
+            by_lang['JPN'] += 1
+        elif entry[2] == 'FRA':
+            by_lang['FRA'] += 1
+        elif entry[2] == 'ITA':
+            by_lang['ITA'] += 1
+    
+    print('KOR: {0:<10}DEU: {1:<10}TUR: {2:<10}ZHO: {3}'.format(by_lang['KOR'],by_lang['DEU'],by_lang['TUR'],by_lang['ZHO']))
+    print('TEL: {0:<10}ARA: {1:<10}SPA: {2:<10}'.format(by_lang['TEL'],by_lang['ARA'],by_lang['SPA']))
+    print('HIN: {0:<10}JPN: {1:<10}FRA: {2:<10}ITA:{3}'.format(by_lang['HIN'],by_lang['JPN'],by_lang['FRA'],by_lang['ITA']))
