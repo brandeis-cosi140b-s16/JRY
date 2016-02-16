@@ -2,3 +2,6 @@
 *.log
 *.synctex.gz
 toefl11/
+toefl11_part/train
+toefl11_part/dev
+toefl11_part/test
