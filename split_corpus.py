@@ -1,5 +1,6 @@
 # first move the unzipped toefl11 directory into the top level
 # then create a toefl11_part directory with train/, dev/, and test/ subdirectories
+# inside each, create eleven folders: "KOR", "DEU", "TUR",  "ZHO",  "TEL",  "ARA", "SPA", "HIN", "JPN", "FRA", "ITA"
 # .gitignore takes care of the rest
 
 
@@ -18,7 +19,7 @@ def copy_file_to_setdir(csvfilename):
     with open(f) as csvfile:
         iterator = csv.reader(csvfile,delimiter=',')
         for item in iterator:
-            shutil.copyfile('toefl11/data/text/responses/tokenized/'+item[0],'toefl11_part/'+csvfilename+'/'+item[0])
+            shutil.copyfile('toefl11/data/text/responses/tokenized/'+item[0],'toefl11_part/'+csvfilename+'/'+item[2]+'/'+item[0])
 
 if __name__ == '__main__':
     p1 = [] #broad knowledge or specialization
