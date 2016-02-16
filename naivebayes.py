@@ -1,4 +1,5 @@
 # adapted from http://www.python-course.eu/text_classification_python.php
+# added calculations to compare percentage of correct classifications and likely missteps
 
 import re, os
 
@@ -166,9 +167,10 @@ class Pool(object):
         dir = os.listdir(directory)
         for file in dir:
             d = Document(self.__vocabulary)
-            print(directory + "/" + file)
+            #print(directory + "/" + file)
             d.read_document(directory + "/" +  file, learn = True)
             x = x + d
+        print("done with "+directory)
         self.__document_classes[dclass_name] = x
         x.SetNumberOfDocs(len(dir))
 
@@ -215,17 +217,56 @@ class Pool(object):
 
 if __name__ == '__main__':
     DClasses = ["KOR",  "DEU",  "TUR",  "ZHO",  "TEL",  "ARA", "SPA", "HIN", "JPN", "FRA", "ITA"]
+    
+    classified_as = {
+        'KOR':[],
+        'DEU':[],
+        'TUR':[],
+        'ZHO':[],
+        'TEL':[],
+        'ARA':[],
+        'SPA':[],
+        'HIN':[],
+        'JPN':[],
+        'FRA':[],
+        'ITA':[]}
 
     base = "toefl11_part/train/"
     p = Pool()
     for i in DClasses:
         p.learn(base + i, i)
 
-
-
     base = "toefl11_part/test/"
-    for i in DClasses:
-        dir = os.listdir(base + i)
-        for file in dir:
-            res = p.Probability(base + i + "/" + file)
-            print(i + ": " + file + ": " + str(res))
+    with open('naivebayes_result.txt','w') as f:
+        for lang in DClasses:
+            dir = os.listdir(base + lang)
+            for file in dir:
+                res = p.Probability(base + lang + "/" + file)
+                #print(i + ": " + file + ": " + str(res[0]))
+                classified_as[lang].append((file,res))
+            print('finished classifying {0}'.format(lang))
+            
+            num_files = len(classified_as[lang])
+            
+            f.write('{0}: {1} files in test set\n----------------\n'.format(lang,num_files))
+            prob_per_lang = {
+                'KOR':0,
+                'DEU':0,
+                'TUR':0,
+                'ZHO':0,
+                'TEL':0,
+                'ARA':0,
+                'SPA':0,
+                'HIN':0,
+                'JPN':0,
+                'FRA':0,
+                'ITA':0}
+            for file in classified_as[lang]:
+                # print the top three possibilities
+                #print('{0:<15}: {1:15}, {2:15}, {3:15}'.format(file[0],str(file[1][0]),str(file[1][1]),str(file[1][2])))
+                
+                # increment the classified as language by 1
+                prob_per_lang[file[1][0][0]] += 1
+            
+            for lang in prob_per_lang:
+                f.write('{0}: {1:3}/{2:3} {3:.5%}\n'.format(lang,prob_per_lang[lang],num_files,(prob_per_lang[lang]/num_files)))
