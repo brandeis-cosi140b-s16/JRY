@@ -53,9 +53,8 @@
 <!ELEMENT Homophone ( #PCDATA ) > 
 <!ATTLIST Homophone IntendedWord CDATA #REQUIRED > 
 
-
 <!ELEMENT PrepositionOf ( #PCDATA ) >
-<!ATTLIST PrepositionOF id ID prefix="of" #REQUIRED > 
+<!ATTLIST PrepositionOf id ID prefix="of" #REQUIRED > 
 
 <!ELEMENT MissingPreposition ( #PCDATA ) > 
 <!ATTLIST id ID prefix="MPrep" #REQUIRED > 
