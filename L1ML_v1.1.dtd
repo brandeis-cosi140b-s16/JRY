@@ -19,7 +19,7 @@
 <!ATTLIST InconsistentTense id ID prefix="IT" #REQUIRED > 
 
 <!ELEMENT InconsistentTenseLink EMPTY > 
-<!ATTLIST InconsistentTenseLink spans #IMPLIED >
+<!--<!ATTLIST InconsistentTenseLink spans #IMPLIED >-->
 <!-- How far should the span for inconsistent tense go? Just within a sentence? A paragraph? --> 
 <!ATTLIST InconsistentTenseLink arg0 IDREF prefix="verb1" #REQUIRED >
 <!ATTLIST InconsistentTenseLink arg1 IDREF prefix="verb2" #REQUIRED > 
@@ -57,19 +57,19 @@
 <!ATTLIST PrepositionOf id ID prefix="of" #REQUIRED > 
 
 <!ELEMENT MissingPreposition ( #PCDATA ) > 
-<!ATTLIST id ID prefix="MPrep" #REQUIRED > 
+<!ATTLIST MissingPreposition id ID prefix="MPrep" #REQUIRED > 
 <!ATTLIST MissingPreposition spans #IMPLIED > 
 
 <!ELEMENT PrepositionMismatch ( #PCDATA ) >
-<!ATTLIST id ID prefix="PrepMismatch" #REQUIRED > 
+<!ATTLIST PrepositionMismatch id ID prefix="PrepMismatch" #REQUIRED > 
 <!ATTLIST PrepositionMismatch IntendedPreposition CDATA #REQUIRED > 
 
 <!ELEMENT MissingPeriod ( #PCDATA ) > 
-<!ATTLIST id ID prefix="." #REQUIRED > 
+<!ATTLIST MissingPeriod id ID prefix="." #REQUIRED > 
 <!ATTLIST MissingPeriod spans #IMPLIED > 
 
 <!ELEMENT AwkwardPunctuation ( #PCDATA ) >
-<!ATTLIST id ID prefix="AwkwardPunc" #REQUIRED > 
+<!ATTLIST AwkwardPunctuation id ID prefix="AwkwardPunc" #REQUIRED > 
 
 
 
