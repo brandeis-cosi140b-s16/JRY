@@ -1,0 +1,83 @@
+<!ENTITY name "L1ML_v1.0">
+
+<!-- This tag is to mark if a copula is not present in the text -->
+
+<!ELEMENT MissingCopula ( #PCDATA ) >
+<!ATTLIST MissingCopula id ID prefix="MCop" #REQUIRED > 
+<!ATTLIST MissingCopula spans #IMPLIED > 
+
+<!-- Do we want the annotators to put in the correct form using CDATA? --> 
+<!ATTLIST MissingCopula CorrectForm CDATA #REQUIRED > 
+
+<!ELEMENT SVDisagreement ( #PCDATA ) >
+<!ATTLIST SVDisagreement id ID prefix="SVD" #REQUIRED > 
+<!-- Do we want the annotators to choose the written form versus the correct form? --> 
+<!ATTLIST SVDisagreement WrittenForm (1st Pers Sing | 2nd Pers | 3rd Pers Sing | 1st Pers Plur | 3rd Pers Plur) #REQUIRED >
+<!ATTLIST SVDisagreement CorrectForm (1st Pers Sing | 2nd Pers | 3rd Pers Sing | 1st Pers Plur | 3rd Pers Plur) #REQUIRED > 
+
+<!ELEMENT InconsistentTense ( #PCDATA ) >
+<!ATTLIST InconsistentTense id ID prefix="IT" #REQUIRED > 
+
+<!ELEMENT InconsistentTenseLink EMPTY > 
+<!ATTLIST InconsistentTenseLink spans #IMPLIED >
+<!-- How far should the span for inconsistent tense go? Just within a sentence? A paragraph? --> 
+<!ATTLIST InconsistentTenseLink arg0 IDREF prefix="verb1" #REQUIRED >
+<!ATTLIST InconsistentTenseLink arg1 IDREF prefix="verb2" #REQUIRED > 
+<!ATTLIST InconsistentTenseLink arg2 IDREF prefix="verb3" #IMPLIED > 
+<!ATTLIST InconsistentTenseLink arg3 IDREF prefix="verb4" #IMPLIED >
+<!ATTLIST InconsistentTenseLink arg4 IDREF prefix="verb5" #IMPLIED > 
+<!ATTLIST InconsistentTenseLink arg5 IDREF prefix="verb6" #IMPLIED > 
+
+<!ELEMENT MissingArticle ( #PCDATA ) > 
+<!ATTLIST MissingArticle id ID prefix="MArt" #REQUIRED > 
+<!ATTLIST MissingArticle spans #IMPLIED > 
+
+<!-- Not sure if we want this... possible for more than one article to fit in a given location. Thoughts? --> 
+<!ATTLIST MissingArticle CorrectForm (a | an | the | some) #REQUIRED > 
+
+<!ELEMENT ExtraArticle ( #PCDATA ) > 
+<!ATTLIST ExtraArticle id ID prefix="ExArt" #REQUIRED > 
+
+<!ELEMENT Noun ( #PCDATA ) > 
+<!ELEMENT Article ( #PCDATA ) >
+<!ELEMENT NounArticleDisagreement EMPTY > 
+<!ATTLIST NounArticleDisagreement id ID prefix="NAD" #REQUIRED > 
+<!ATTLIST NounArticleDisagreement spans #IMPLIED > 
+
+<!ELEMENT PossibleCognate ( #PCDATA ) > 
+<!ATTLIST PossibleCognate id ID prefix="PCog" #REQUIRED >
+<!ATTLIST PossibleCognate IntendedWord CDATA #REQUIRED > 
+
+<!ELEMENT VowelsMissing ( #PCDATA ) >
+
+<!ELEMENT Homophone ( #PCDATA ) > 
+<!ATTLIST Homophone IntendedWord CDATA #REQUIRED > 
+
+
+<!ELEMENT PrepositionOf ( #PCDATA ) >
+<!ATTLIST PrepositionOF id ID prefix="of" #REQUIRED > 
+
+<!ELEMENT MissingPreposition ( #PCDATA ) > 
+<!ATTLIST id ID prefix="MPrep" #REQUIRED > 
+<!ATTLIST MissingPreposition spans #IMPLIED > 
+
+<!ELEMENT PrepositionMismatch ( #PCDATA ) >
+<!ATTLIST id ID prefix="PrepMismatch" #REQUIRED > 
+<!ATTLIST PrepositionMismatch IntendedPreposition CDATA #REQUIRED > 
+
+<!ELEMENT MissingPeriod ( #PCDATA ) > 
+<!ATTLIST id ID prefix="." #REQUIRED > 
+<!ATTLIST MissingPeriod spans #IMPLIED > 
+
+<!ELEMENT AwkwardPunctuation ( #PCDATA ) >
+<!ATTLIST id ID prefix="AwkwardPunc" #REQUIRED > 
+
+
+
+
+
+
+
+
+
+
