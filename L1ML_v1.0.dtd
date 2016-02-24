@@ -1,32 +1,16 @@
 <!ENTITY name "L1ML_v1.0">
 
-<!-- This tag is to mark if a copula is not present in the text; tag the white space! -->
+<!-- This tag is to mark if a copula is not present in the text; tag the white space! 
+     de we want to link the subject and predicate? -->
 <!ELEMENT MissingCopula ( #PCDATA ) >
 <!ATTLIST MissingCopula id ID prefix="MCop" #REQUIRED > 
 <!ATTLIST MissingCopula CorrectForm CDATA #REQUIRED > 
 
-<!ELEMENT SVDisagreement ( #PCDATA ) >
-<!ATTLIST SVDisagreement id ID prefix="SVD" #REQUIRED > 
-<!-- Do we want the annotators to choose the written form versus the correct form? --> 
-<!ATTLIST SVDisagreement WrittenForm (1st Pers Sing | 2nd Pers | 3rd Pers Sing | 1st Pers Plur | 3rd Pers Plur) #REQUIRED >
-<!ATTLIST SVDisagreement CorrectForm (1st Pers Sing | 2nd Pers | 3rd Pers Sing | 1st Pers Plur | 3rd Pers Plur) #REQUIRED > 
-
-<!-- tense mismatch within some scope-->
-<!ELEMENT InconsistentTense ( #PCDATA ) >
-<!ATTLIST InconsistentTense id ID prefix="IT" #REQUIRED > 
-<!ELEMENT InconsistentTenseLink EMPTY > 
-<!ATTLIST InconsistentTenseLink arg0 IDREF prefix="verb1" #REQUIRED >
-<!ATTLIST InconsistentTenseLink arg1 IDREF prefix="verb2" #REQUIRED > 
-<!ATTLIST InconsistentTenseLink arg2 IDREF prefix="verb3" #IMPLIED > 
-<!ATTLIST InconsistentTenseLink arg3 IDREF prefix="verb4" #IMPLIED >
-<!ATTLIST InconsistentTenseLink arg4 IDREF prefix="verb5" #IMPLIED > 
-<!ATTLIST InconsistentTenseLink arg5 IDREF prefix="verb6" #IMPLIED > 
-
 <!--mark only nouns with some wrong dependency-->
-<!ELEMENT Noun ( #PCDATA )>
-<!ATTLIST Noun Error (MissingPreposition | IncorrectPreposition | MissingDeterminer | IncorrectDeterminer | ExtraDeterminer) #REQUIRED>
-<!ATTLIST Noun CorrectDeterminer (a | an | the | some | this | that | these | those | any | many | much | few | little | all | SOME NUMBER) #IMPLIED>
-<!ATTLIST Noun CorrectPreposition CDATA #IMPLIED>
+<!ELEMENT Noun ( #PCDATA ) >
+<!ATTLIST Noun Error (MissingPreposition | IncorrectPreposition | MissingDeterminer | IncorrectDeterminer | ExtraDeterminer) #REQUIRED >
+<!ATTLIST Noun CorrectDeterminer (a | an | the | some | this | that | these | those | any | many | much | few | little | all | NUMBER) #IMPLIED >
+<!ATTLIST Noun CorrectPreposition CDATA #IMPLIED >
 
 <!--keep this, attribute on the noun and link-->
 <!ELEMENT ExtraArticle ( #PCDATA ) > 
@@ -38,20 +22,41 @@
 <!ATTLIST ExtraArticleNounLink arg0 IDREF prefix="article" #REQUIRED >
 <!ATTLIST ExtraArticleNounLink arg1 IDREF prefix="noun" #REQUIRED >
 
-<!--preposition stuff-->
+<!--verbs with wrong dependency-->
+<!ELEMENT Verb ( #PCDATA ) >
+<!ATTLIST Verb Error (MissingPreposition | IncorrectPreposition | IncorrectForm | MissingSubject) #REQUIRED >
+<!ATTLIST Verb WrittenForm (1st Sg | 1st Pl | 2nd Sg | 2nd Pl | 3rd Sg | 3rd Pl) #IMPLIED >
+<!ATTLIST Verb CorrectForm (1st Sg | 1st Pl | 2nd Sg | 2nd Pl | 3rd Sg | 3rd Pl) #IMPLIED >
+<!ATTLIST Verb CorrectPreposition CDATA #IMPLIED >
 
+<!--link between noun and verb-->
+<!ELEMENT SVDisagreement EMPTY >
+<!ATTLIST SVDisagreement id ID prefix="SVD" #REQUIRED > 
+<!ATTLIST SVDisagreement arg0 IDREF prefix="subject" #REQUIRED > <!--what do we do with multiple subjects, ie X and Y-->
+<!ATTLIST SVDisagreement arg1 IDREF prefix="verb" #REQUIRED >
+
+<!-- tense mismatch within some scope-->
+<!ELEMENT InconsistentTenseLink EMPTY > 
+<!ATTLIST InconsistentTenseLink id ID prefix="IT" #REQUIRED > 
+<!ATTLIST InconsistentTenseLink arg0 IDREF prefix="verb1" #REQUIRED >
+<!ATTLIST InconsistentTenseLink arg1 IDREF prefix="verb2" #REQUIRED > 
+<!ATTLIST InconsistentTenseLink arg2 IDREF prefix="verb3" #IMPLIED > 
+<!ATTLIST InconsistentTenseLink arg3 IDREF prefix="verb4" #IMPLIED >
+<!ATTLIST InconsistentTenseLink arg4 IDREF prefix="verb5" #IMPLIED > 
+<!ATTLIST InconsistentTenseLink arg5 IDREF prefix="verb6" #IMPLIED > 
+
+<!--preposition stuff-->
 <!ELEMENT PrepositionOf ( #PCDATA ) >
 <!ATTLIST PrepositionOf id ID prefix="of" #REQUIRED > 
 
 <!--punctuation-->
-
-<!ELEMENT MissingPeriod ( #PCDATA ) > 
+<!ELEMENT MissingPeriod ( #PCDATA ) > <!--tag the whitespace-->
 <!ATTLIST MissingPeriod id ID prefix="." #REQUIRED > 
-<!ATTLIST MissingPeriod spans #IMPLIED > 
 
 <!ELEMENT AwkwardPunctuation ( #PCDATA ) >
-<!ATTLIST AwkwardPunctuation id ID prefix="AwkwardPunc" #REQUIRED > 
+<!ATTLIST AwkwardPunctuation id ID prefix="AwkPunc" #REQUIRED > 
 
 <!--one tag for misspellings-->
-<!ELEMENT Misspelling ( #PCDATA )>
-<!ATTLIST Misspelling ErrorType (VowelsMissing | Homophone | SegmentVoicing | Cognate) #REQUIRED >
+<!ELEMENT Misspelling ( #PCDATA ) >
+<!ATTLIST Misspelling Error (VowelsMissing | Homophone | SegmentVoicing | Cognate) #REQUIRED >
+
