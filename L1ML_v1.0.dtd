@@ -26,8 +26,8 @@
 <!--verbs with wrong dependency-->
 <!ELEMENT Verb ( #PCDATA ) >
 <!ATTLIST Verb Error (MissingPreposition | IncorrectPreposition | IncorrectForm | MissingSubject) #REQUIRED >
-<!ATTLIST Verb WrittenForm (1st Sg | 1st Pl | 2nd Sg | 2nd Pl | 3rd Sg | 3rd Pl) #IMPLIED >
-<!ATTLIST Verb CorrectForm (1st Sg | 1st Pl | 2nd Sg | 2nd Pl | 3rd Sg | 3rd Pl) #IMPLIED >
+<!ATTLIST Verb WrittenForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
+<!ATTLIST Verb CorrectForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
 <!ATTLIST Verb CorrectPreposition CDATA #IMPLIED >
 
 <!--link between noun and verb-->
