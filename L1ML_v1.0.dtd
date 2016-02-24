@@ -1,12 +1,8 @@
 <!ENTITY name "L1ML_v1.0">
 
-<!-- This tag is to mark if a copula is not present in the text -->
-
+<!-- This tag is to mark if a copula is not present in the text; tag the white space! -->
 <!ELEMENT MissingCopula ( #PCDATA ) >
 <!ATTLIST MissingCopula id ID prefix="MCop" #REQUIRED > 
-<!ATTLIST MissingCopula spans #IMPLIED > 
-
-<!-- Do we want the annotators to put in the correct form using CDATA? --> 
 <!ATTLIST MissingCopula CorrectForm CDATA #REQUIRED > 
 
 <!ELEMENT SVDisagreement ( #PCDATA ) >
@@ -15,11 +11,10 @@
 <!ATTLIST SVDisagreement WrittenForm (1st Pers Sing | 2nd Pers | 3rd Pers Sing | 1st Pers Plur | 3rd Pers Plur) #REQUIRED >
 <!ATTLIST SVDisagreement CorrectForm (1st Pers Sing | 2nd Pers | 3rd Pers Sing | 1st Pers Plur | 3rd Pers Plur) #REQUIRED > 
 
+<!-- tense mismatch within some scope-->
 <!ELEMENT InconsistentTense ( #PCDATA ) >
 <!ATTLIST InconsistentTense id ID prefix="IT" #REQUIRED > 
-
 <!ELEMENT InconsistentTenseLink EMPTY > 
-<!-- How far should the span for inconsistent tense go? Just within a sentence? A paragraph? --> 
 <!ATTLIST InconsistentTenseLink arg0 IDREF prefix="verb1" #REQUIRED >
 <!ATTLIST InconsistentTenseLink arg1 IDREF prefix="verb2" #REQUIRED > 
 <!ATTLIST InconsistentTenseLink arg2 IDREF prefix="verb3" #IMPLIED > 
@@ -27,37 +22,26 @@
 <!ATTLIST InconsistentTenseLink arg4 IDREF prefix="verb5" #IMPLIED > 
 <!ATTLIST InconsistentTenseLink arg5 IDREF prefix="verb6" #IMPLIED > 
 
-<!ELEMENT MissingArticle ( #PCDATA ) > 
-<!ATTLIST MissingArticle id ID prefix="MArt" #REQUIRED > 
-<!ATTLIST MissingArticle spans #IMPLIED > 
-<!-- Not sure if we want this... possible for more than one article to fit in a given location. Thoughts? --> 
-<!ATTLIST MissingArticle CorrectForm (a | an | the | some) #REQUIRED > 
+<!--mark only nouns with some wrong dependency-->
+<!ELEMENT Noun ( #PCDATA )>
+<!ATTLIST Noun Error (MissingPreposition | IncorrectPreposition | MissingDeterminer | IncorrectDeterminer | ExtraDeterminer) #REQUIRED>
+<!ATTLIST Noun CorrectDeterminer (a | an | the | some | this | that | these | those | any | many | much | few | little | all | SOME NUMBER) #IMPLIED>
+<!ATTLIST Noun CorrectPreposition CDATA #IMPLIED>
 
+<!--keep this, attribute on the noun and link-->
 <!ELEMENT ExtraArticle ( #PCDATA ) > 
 <!ATTLIST ExtraArticle id ID prefix="ExArt" #REQUIRED > 
 
-<!ELEMENT Noun ( #PCDATA ) > 
-<!ELEMENT Article ( #PCDATA ) >
-<!ELEMENT NounArticleDisagreement EMPTY > 
-<!ATTLIST NounArticleDisagreement id ID prefix="NAD" #REQUIRED > 
-<!ATTLIST NounArticleDisagreement spans #IMPLIED > 
-
-<!ELEMENT PossibleCognate ( #PCDATA ) > 
-<!ATTLIST PossibleCognate id ID prefix="PCog" #REQUIRED >
-<!ATTLIST PossibleCognate IntendedWord CDATA #REQUIRED > 
+<!-- link the extra article to the noun-->
+<!ELEMENT ExtraArticleNounLink EMPTY >
+<!ATTLIST ExtraArticleNounLink id ID prefix="EANL" #REQUIRED > 
+<!ATTLIST ExtraArticleNounLink arg0 IDREF prefix="article" #REQUIRED >
+<!ATTLIST ExtraArticleNounLink arg1 IDREF prefix="noun" #REQUIRED >
 
 <!--preposition stuff-->
 
 <!ELEMENT PrepositionOf ( #PCDATA ) >
 <!ATTLIST PrepositionOf id ID prefix="of" #REQUIRED > 
-
-<!ELEMENT MissingPreposition ( #PCDATA ) > 
-<!ATTLIST MissingPreposition id ID prefix="MPrep" #REQUIRED > 
-<!ATTLIST MissingPreposition spans #IMPLIED > 
-
-<!ELEMENT PrepositionMismatch ( #PCDATA ) >
-<!ATTLIST PrepositionMismatch id ID prefix="PrepMismatch" #REQUIRED > 
-<!ATTLIST PrepositionMismatch IntendedPreposition CDATA #REQUIRED > 
 
 <!--punctuation-->
 
@@ -71,5 +55,3 @@
 <!--one tag for misspellings-->
 <!ELEMENT Misspelling ( #PCDATA )>
 <!ATTLIST Misspelling ErrorType (VowelsMissing | Homophone | SegmentVoicing | Cognate) #REQUIRED >
-
-
