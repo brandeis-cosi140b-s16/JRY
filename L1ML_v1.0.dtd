@@ -9,7 +9,8 @@
 <!--mark only nouns with some wrong dependency-->
 <!ELEMENT Noun ( #PCDATA ) >
 <!ATTLIST Noun Error (MissingPreposition | IncorrectPreposition | MissingDeterminer | IncorrectDeterminer | ExtraDeterminer) #REQUIRED >
-<!ATTLIST Noun CorrectDeterminer (a | an | the | some | this | that | these | those | any | many | much | few | little | all | NUMBER) #IMPLIED >
+<!ATTLIST Noun CorrectDeterminer (a | an | the | some | this | that | these | those | any | many | much | few | little | all | every | NUMBER) #IMPLIED >
+<!ATTLIST Noun OtherCorrectDeterminer CDATA #IMPLIED > <!--use if the determiner isn't in the list above-->
 <!ATTLIST Noun CorrectPreposition CDATA #IMPLIED >
 
 <!--keep this, attribute on the noun and link-->
@@ -32,7 +33,7 @@
 <!--link between noun and verb-->
 <!ELEMENT SVDisagreement EMPTY >
 <!ATTLIST SVDisagreement id ID prefix="SVD" #REQUIRED > 
-<!ATTLIST SVDisagreement arg0 IDREF prefix="subject" #REQUIRED > <!--what do we do with multiple subjects, ie X and Y-->
+<!ATTLIST SVDisagreement arg0 IDREF prefix="subject" #REQUIRED > <!--X and Y, use span with gaps and don't include and-->
 <!ATTLIST SVDisagreement arg1 IDREF prefix="verb" #REQUIRED >
 
 <!-- tense mismatch within some scope-->
