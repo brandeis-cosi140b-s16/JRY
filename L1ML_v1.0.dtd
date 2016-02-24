@@ -1,4 +1,4 @@
-<!ENTITY name "L1ML_v1.1">
+<!ENTITY name "L1ML_v1.0">
 
 <!-- This tag is to mark if a copula is not present in the text -->
 
@@ -19,7 +19,6 @@
 <!ATTLIST InconsistentTense id ID prefix="IT" #REQUIRED > 
 
 <!ELEMENT InconsistentTenseLink EMPTY > 
-<!--<!ATTLIST InconsistentTenseLink spans #IMPLIED >-->
 <!-- How far should the span for inconsistent tense go? Just within a sentence? A paragraph? --> 
 <!ATTLIST InconsistentTenseLink arg0 IDREF prefix="verb1" #REQUIRED >
 <!ATTLIST InconsistentTenseLink arg1 IDREF prefix="verb2" #REQUIRED > 
@@ -31,7 +30,6 @@
 <!ELEMENT MissingArticle ( #PCDATA ) > 
 <!ATTLIST MissingArticle id ID prefix="MArt" #REQUIRED > 
 <!ATTLIST MissingArticle spans #IMPLIED > 
-
 <!-- Not sure if we want this... possible for more than one article to fit in a given location. Thoughts? --> 
 <!ATTLIST MissingArticle CorrectForm (a | an | the | some) #REQUIRED > 
 
@@ -48,10 +46,7 @@
 <!ATTLIST PossibleCognate id ID prefix="PCog" #REQUIRED >
 <!ATTLIST PossibleCognate IntendedWord CDATA #REQUIRED > 
 
-<!ELEMENT VowelsMissing ( #PCDATA ) >
-
-<!ELEMENT Homophone ( #PCDATA ) > 
-<!ATTLIST Homophone IntendedWord CDATA #REQUIRED > 
+<!--preposition stuff-->
 
 <!ELEMENT PrepositionOf ( #PCDATA ) >
 <!ATTLIST PrepositionOf id ID prefix="of" #REQUIRED > 
@@ -64,6 +59,8 @@
 <!ATTLIST PrepositionMismatch id ID prefix="PrepMismatch" #REQUIRED > 
 <!ATTLIST PrepositionMismatch IntendedPreposition CDATA #REQUIRED > 
 
+<!--punctuation-->
+
 <!ELEMENT MissingPeriod ( #PCDATA ) > 
 <!ATTLIST MissingPeriod id ID prefix="." #REQUIRED > 
 <!ATTLIST MissingPeriod spans #IMPLIED > 
@@ -71,12 +68,8 @@
 <!ELEMENT AwkwardPunctuation ( #PCDATA ) >
 <!ATTLIST AwkwardPunctuation id ID prefix="AwkwardPunc" #REQUIRED > 
 
-
-
-
-
-
-
-
+<!--one tag for misspellings-->
+<!ELEMENT Misspelling ( #PCDATA )>
+<!ATTLIST Misspelling ErrorType (VowelsMissing | Homophone | SegmentVoicing | Cognate) #REQUIRED >
 
 
