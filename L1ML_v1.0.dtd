@@ -15,12 +15,11 @@
 <!ELEMENT Noun ( #PCDATA ) >
 <!ATTLIST Noun Error (MissingPreposition | IncorrectPreposition | MissingDeterminer | IncorrectDeterminer | ExtraDeterminer | NotPlural | NotSingular) #REQUIRED >
 
-<!--keep this, attribute on the noun and link-->
+<!--determiners-->
 <!ELEMENT Determiner ( #PCDATA ) > 
 <!ATTLIST Determiner CorrectForm (a | an | the | some | this | that | these | those | any | many | much | few | little | all | every | NUMBER | POSSESSIVE | OTHER) #IMPLIED >
 <!ATTLIST Determiner OtherCorrectForm CDATA #IMPLIED > <!--use if the determiner isn't in the list above-->
 
-<!-- link the extra article to the noun-->
 <!ELEMENT DetNounLink EMPTY >
 <!ATTLIST DetNounLink id ID prefix="DNL" #REQUIRED > 
 <!ATTLIST DetNounLink arg0 IDREF prefix="article" #REQUIRED >
