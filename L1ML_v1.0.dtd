@@ -8,27 +8,25 @@
 
 <!--mark only nouns with some wrong dependency-->
 <!ELEMENT Noun ( #PCDATA ) >
-<!ATTLIST Noun Error (MissingPreposition | IncorrectPreposition | MissingDeterminer | IncorrectDeterminer | ExtraDeterminer) #REQUIRED >
-<!ATTLIST Noun CorrectDeterminer (a | an | the | some | this | that | these | those | any | many | much | few | little | all | every | NUMBER) #IMPLIED >
+<!ATTLIST Noun Error (MissingPreposition | IncorrectPreposition | MissingDeterminer | IncorrectDeterminer | ExtraDeterminer | NotPlural | NotSingular) #REQUIRED >
+<!ATTLIST Noun CorrectDeterminer (a | an | the | some | this | that | these | those | any | many | much | few | little | all | every | NUMBER | POSSESSIVE | other) #IMPLIED >
 <!ATTLIST Noun OtherCorrectDeterminer CDATA #IMPLIED > <!--use if the determiner isn't in the list above-->
-<!ATTLIST Noun CorrectPreposition CDATA #IMPLIED >
 
 <!--keep this, attribute on the noun and link-->
-<!ELEMENT ExtraArticle ( #PCDATA ) > 
-<!ATTLIST ExtraArticle id ID prefix="ExArt" #REQUIRED > 
+<!ELEMENT ExtraDeterminer ( #PCDATA ) > 
+<!ATTLIST ExtraDeterminer id ID prefix="ExDet" #REQUIRED > 
 
 <!-- link the extra article to the noun-->
-<!ELEMENT ExtraArticleNounLink EMPTY >
-<!ATTLIST ExtraArticleNounLink id ID prefix="EANL" #REQUIRED > 
-<!ATTLIST ExtraArticleNounLink arg0 IDREF prefix="article" #REQUIRED >
-<!ATTLIST ExtraArticleNounLink arg1 IDREF prefix="noun" #REQUIRED >
+<!ELEMENT ExtraDetNounLink EMPTY >
+<!ATTLIST ExtraDetNounLink id ID prefix="EDNL" #REQUIRED > 
+<!ATTLIST ExtraDetNounLink arg0 IDREF prefix="article" #REQUIRED >
+<!ATTLIST ExtraDetNounLink arg1 IDREF prefix="noun" #REQUIRED >
 
 <!--verbs with wrong dependency-->
 <!ELEMENT Verb ( #PCDATA ) >
 <!ATTLIST Verb Error (MissingPreposition | IncorrectPreposition | IncorrectForm | MissingSubject) #REQUIRED >
 <!ATTLIST Verb WrittenForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
 <!ATTLIST Verb CorrectForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
-<!ATTLIST Verb CorrectPreposition CDATA #IMPLIED >
 
 <!--link between noun and verb-->
 <!ELEMENT SVDisagreement EMPTY >
@@ -47,17 +45,19 @@
 <!ATTLIST InconsistentTenseLink arg5 IDREF prefix="verb6" #IMPLIED > 
 
 <!--preposition stuff-->
-<!ELEMENT PrepositionOf ( #PCDATA ) >
-<!ATTLIST PrepositionOf id ID prefix="of" #REQUIRED > 
+<!ELEMENT Preposition ( #PCDATA ) >
+<!ATTLIST Preposition CorrectPreposition CDATA #IMPLIED >
+
+<!ELEMENT IncorrectPrepositionLink EMPTY >
+<!ATTLIST IncorrectPrepositionLink id ID prefix="IPL" #REQUIRED >
+<!ATTLIST IncorrectPrepositionLink arg0 IDREF prefix="prep" #REQUIRED >
+<!ATTLIST IncorrectPrepositionLink arg1 IDREF prefix="mother" #REQUIRED > <!--the noun or verb that contains the prep in its frame-->
 
 <!--punctuation-->
-<!ELEMENT MissingPeriod ( #PCDATA ) > <!--tag the whitespace-->
-<!ATTLIST MissingPeriod id ID prefix="." #REQUIRED > 
-
 <!ELEMENT AwkwardPunctuation ( #PCDATA ) >
 <!ATTLIST AwkwardPunctuation id ID prefix="AwkPunc" #REQUIRED > 
 
 <!--one tag for misspellings-->
 <!ELEMENT Misspelling ( #PCDATA ) >
-<!ATTLIST Misspelling Error (VowelsMissing | Homophone | SegmentVoicing | Cognate) #REQUIRED >
+<!ATTLIST Misspelling Error (VowelsIssues | Homophone | SegmentVoicing | Cognate | Other) #REQUIRED >
 
