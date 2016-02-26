@@ -1,15 +1,20 @@
 <!ENTITY name "L1ML_v1.0">
 
 <!-- This tag is to mark if a copula is not present in the text; tag the white space! 
-     de we want to link the subject and predicate? -->
+     the XML gives a span of -1 to -1 -->
 <!ELEMENT MissingCopula ( #PCDATA ) >
 <!ATTLIST MissingCopula id ID prefix="MCop" #REQUIRED > 
 <!ATTLIST MissingCopula CorrectForm CDATA #REQUIRED > 
 
+<!--incorrect POS-->
+<!ELEMENT WrongPOS ( #PCDATA ) >
+<!ATTLIST WrongPOS WrittenPOS (Noun | Verb | Adjective | Adverb | OTHER) #REQUIRED >
+<!ATTLIST WrongPOS CorrectPOS (Noun | Verb | Adjective | Adverb | OTHER) #REQUIRED >
+
 <!--mark only nouns with some wrong dependency-->
 <!ELEMENT Noun ( #PCDATA ) >
 <!ATTLIST Noun Error (MissingPreposition | IncorrectPreposition | MissingDeterminer | IncorrectDeterminer | ExtraDeterminer | NotPlural | NotSingular) #REQUIRED >
-<!ATTLIST Noun CorrectDeterminer (a | an | the | some | this | that | these | those | any | many | much | few | little | all | every | NUMBER | POSSESSIVE | other) #IMPLIED >
+<!ATTLIST Noun CorrectDeterminer (a | an | the | some | this | that | these | those | any | many | much | few | little | all | every | NUMBER | POSSESSIVE | OTHER) #IMPLIED >
 <!ATTLIST Noun OtherCorrectDeterminer CDATA #IMPLIED > <!--use if the determiner isn't in the list above-->
 
 <!--keep this, attribute on the noun and link-->
@@ -27,6 +32,7 @@
 <!ATTLIST Verb Error (MissingPreposition | IncorrectPreposition | IncorrectForm | MissingSubject) #REQUIRED >
 <!ATTLIST Verb WrittenForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
 <!ATTLIST Verb CorrectForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
+<!ATTLIST Verb Tense (present | past | future) #IMPLIED > <!--with future, select only the verb, not the modal-->
 
 <!--link between noun and verb-->
 <!ELEMENT SVDisagreement EMPTY >
@@ -59,5 +65,5 @@
 
 <!--one tag for misspellings-->
 <!ELEMENT Misspelling ( #PCDATA ) >
-<!ATTLIST Misspelling Error (VowelsIssues | Homophone | SegmentVoicing | Cognate | Other) #REQUIRED >
+<!ATTLIST Misspelling Error (VowelsIssues | Homophone | SegmentVoicing | Cognate | OTHER) #REQUIRED >
 
