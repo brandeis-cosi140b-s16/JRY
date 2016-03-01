@@ -13,11 +13,13 @@
 
 <!--mark only nouns with some wrong dependency-->
 <!ELEMENT Noun ( #PCDATA ) >
-<!ATTLIST Noun Error (MissingPreposition | IncorrectPreposition | MissingDeterminer | IncorrectDeterminer | ExtraDeterminer | NotPlural | NotSingular) #REQUIRED >
+<!ATTLIST Noun PrepError (MissingPreposition | IncorrectPreposition) #IMPLIED >
+<!ATTLIST Noun DetError (MissingDeterminer | IncorrectDeterminer | ExtraDeterminer) #IMPLIED >
+<!ATTLIST Noun PlError (NotPlural | NotSingular) #IMPLIED >
 
 <!--determiners-->
 <!ELEMENT Determiner ( #PCDATA ) > 
-<!ATTLIST Determiner CorrectForm (a | an | the | some | this | that | these | those | any | many | much | few | little | all | every | NUMBER | POSSESSIVE | OTHER) #IMPLIED >
+<!ATTLIST Determiner CorrectForm (a | an | the | some | this | that | these | those | NUMBER | POSSESSIVE | OTHER) #IMPLIED >
 <!ATTLIST Determiner OtherCorrectForm CDATA #IMPLIED > <!--use if the determiner isn't in the list above-->
 
 <!ELEMENT DetNounLink EMPTY >
@@ -26,11 +28,17 @@
 <!ATTLIST DetNounLink arg1 IDREF prefix="noun" #REQUIRED >
 
 <!--verbs with wrong dependency-->
-<!ELEMENT Verb ( #PCDATA ) >
-<!ATTLIST Verb Error (MissingPreposition | IncorrectPreposition | IncorrectForm | MissingSubject) #REQUIRED >
+<!ELEMENT AuxVerb (#PCDATA) >
 <!ATTLIST Verb WrittenForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
 <!ATTLIST Verb CorrectForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
-<!ATTLIST Verb Tense (present | past | future) #IMPLIED > <!--with future, select only the verb, not the modal; for SVDisagreement only-->
+<!ATTLIST Verb WrittenTense (present | past | future) #IMPLIED >
+
+<!ELEMENT Verb ( #PCDATA ) >
+<!ATTLIST Verb PrepError (MissingPreposition | IncorrectPreposition) #IMPLIED >
+<!ATTLIST Verb MissingSubj (yes | no) #REQUIRED "no" >
+<!ATTLIST Verb WrittenForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
+<!ATTLIST Verb CorrectForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
+<!ATTLIST Verb WrittenTense (present | past | future) #IMPLIED > <!--with future, select only the verb, not the modal; for SVDisagreement only-->
 
 <!--link between noun and verb-->
 <!ELEMENT SVDisagreement EMPTY >
