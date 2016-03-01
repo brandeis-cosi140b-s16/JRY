@@ -28,10 +28,10 @@
 <!ATTLIST DetNounLink arg1 IDREF prefix="noun" #REQUIRED >
 
 <!--verbs with wrong dependency-->
-<!ELEMENT AuxVerb (#PCDATA) >
-<!ATTLIST Verb WrittenForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
-<!ATTLIST Verb CorrectForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
-<!ATTLIST Verb WrittenTense (present | past | future) #IMPLIED >
+<!ELEMENT Aux (#PCDATA) >
+<!ATTLIST Aux WrittenForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
+<!ATTLIST Aux CorrectForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
+<!ATTLIST Aux WrittenTense (present | past | future) #IMPLIED >
 
 <!ELEMENT Verb ( #PCDATA ) >
 <!ATTLIST Verb MissingSubj (yes | no) #REQUIRED "no" >
