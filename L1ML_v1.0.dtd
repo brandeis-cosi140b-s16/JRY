@@ -13,7 +13,7 @@
 
 <!--mark only nouns with some wrong dependency-->
 <!ELEMENT Noun ( #PCDATA ) >
-<!ATTLIST Noun PrepError (MissingPreposition | IncorrectPreposition) #IMPLIED >
+<!ATTLIST Noun PrepError (MissingPreposition | IncorrectPreposition | ExtraPreposition) #IMPLIED >
 <!ATTLIST Noun DetError (MissingDeterminer | IncorrectDeterminer | ExtraDeterminer) #IMPLIED >
 <!ATTLIST Noun PlError (NotPlural | NotSingular) #IMPLIED >
 
