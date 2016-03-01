@@ -35,7 +35,7 @@
 
 <!ELEMENT Verb ( #PCDATA ) >
 <!ATTLIST Verb MissingSubj (yes | no) #REQUIRED "no" >
-<!ATTLIST Verb PrepError (MissingPreposition | IncorrectPreposition) #IMPLIED >
+<!ATTLIST Verb PrepError (MissingPreposition | IncorrectPreposition | ExtraPreposition) #IMPLIED >
 <!ATTLIST Verb WrittenForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
 <!ATTLIST Verb CorrectForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
 <!ATTLIST Verb WrittenTense (present | past | future) #IMPLIED > <!--with future, select only the verb, not the modal; for SVDisagreement only-->
