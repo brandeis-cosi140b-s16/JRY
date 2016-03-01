@@ -1,4 +1,4 @@
-<!ENTITY name "L1ML_v1.0">
+<!ENTITY name "L1ML_v1.1">
 
 <!-- This tag is to mark if a copula is not present in the text; tag the white space! 
      the XML gives a span of -1 to -1 -->
@@ -26,6 +26,10 @@
 <!ATTLIST DetNounLink id ID prefix="DNL" #REQUIRED > 
 <!ATTLIST DetNounLink arg0 IDREF prefix="article" #REQUIRED >
 <!ATTLIST DetNounLink arg1 IDREF prefix="noun" #REQUIRED >
+
+<!--adjective-->
+<!ELEMENT Adj ( #PCDATA ) >
+<!ATTLIST Adj PrepError (MissingPreposition | IncorrectPreposition | ExtraPreposition) #IMPLIED >
 
 <!--verbs with wrong dependency-->
 <!ELEMENT Aux (#PCDATA) >
@@ -60,10 +64,10 @@
 <!ELEMENT Preposition ( #PCDATA ) >
 <!ATTLIST Preposition CorrectPreposition CDATA #IMPLIED >
 
-<!ELEMENT IncorrectPrepositionLink EMPTY >
-<!ATTLIST IncorrectPrepositionLink id ID prefix="IPL" #REQUIRED >
-<!ATTLIST IncorrectPrepositionLink arg0 IDREF prefix="prep" #REQUIRED >
-<!ATTLIST IncorrectPrepositionLink arg1 IDREF prefix="mother" #REQUIRED > <!--the noun or verb that contains the prep in its frame-->
+<!ELEMENT PrepositionLink EMPTY >
+<!ATTLIST PrepositionLink id ID prefix="PrepL" #REQUIRED >
+<!ATTLIST PrepositionLink arg0 IDREF prefix="prep" #REQUIRED >
+<!ATTLIST PrepositionLink arg1 IDREF prefix="mother" #REQUIRED > <!--the noun, verb, or adj that contains the prep in its frame-->
 
 <!--punctuation-->
 <!ELEMENT AwkwardPunctuation ( #PCDATA ) >
