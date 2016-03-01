@@ -34,8 +34,8 @@
 <!ATTLIST Verb WrittenTense (present | past | future) #IMPLIED >
 
 <!ELEMENT Verb ( #PCDATA ) >
-<!ATTLIST Verb PrepError (MissingPreposition | IncorrectPreposition) #IMPLIED >
 <!ATTLIST Verb MissingSubj (yes | no) #REQUIRED "no" >
+<!ATTLIST Verb PrepError (MissingPreposition | IncorrectPreposition) #IMPLIED >
 <!ATTLIST Verb WrittenForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
 <!ATTLIST Verb CorrectForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
 <!ATTLIST Verb WrittenTense (present | past | future) #IMPLIED > <!--with future, select only the verb, not the modal; for SVDisagreement only-->
@@ -46,7 +46,7 @@
 <!ATTLIST SVDisagreement arg0 IDREF prefix="subject" #REQUIRED > <!--X and Y, use span with gaps and don't include and-->
 <!ATTLIST SVDisagreement arg1 IDREF prefix="verb" #REQUIRED >
 
-<!-- tense mismatch within some scope-->
+<!-- tense mismatch within a sentence-->
 <!ELEMENT InconsistentTenseLink EMPTY > 
 <!ATTLIST InconsistentTenseLink id ID prefix="IT" #REQUIRED > 
 <!ATTLIST InconsistentTenseLink arg0 IDREF prefix="verb1" #REQUIRED >
