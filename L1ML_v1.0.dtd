@@ -1,4 +1,4 @@
-<!ENTITY name "L1ML_v1.1">
+<!ENTITY name "L1ML_v1.0">
 
 <!-- This tag is to mark if a copula is not present in the text; tag the white space! 
      the XML gives a span of -1 to -1 -->
@@ -75,5 +75,5 @@
 
 <!--one tag for misspellings-->
 <!ELEMENT Misspelling ( #PCDATA ) >
-<!ATTLIST Misspelling Error (VowelsIssues | Homophone | SegmentVoicing | Cognate | OTHER) #REQUIRED >
+<!ATTLIST Misspelling Error (VowelsIssues | Homophone | SegmentVoicing | Cognate | OTHER | NotMisspelled) #REQUIRED >
 
