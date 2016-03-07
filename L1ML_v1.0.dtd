@@ -75,5 +75,5 @@
 
 <!--one tag for misspellings-->
 <!ELEMENT Misspelling ( #PCDATA ) >
-<!ATTLIST Misspelling Error (VowelsIssues | Homophone | SegmentVoicing | Cognate | OTHER | NotMisspelled) #REQUIRED >
+<!ATTLIST Misspelling Error (VowelsIssues | Homophone | SegmentVoicing | Cognate | OTHER) #REQUIRED >
 
