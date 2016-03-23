@@ -1,15 +1,9 @@
 <!ENTITY name "L1ML_v1.0">
 
-<!-- This tag is to mark if a copula is not present in the text; tag the white space! 
-     the XML gives a span of -1 to -1 -->
+<!-- This tag is to mark if a copula is not present in the text; tag the white space! -->
 <!ELEMENT MissingCopula ( #PCDATA ) >
 <!ATTLIST MissingCopula id ID prefix="MCop" #REQUIRED > 
 <!ATTLIST MissingCopula CorrectForm CDATA #REQUIRED > 
-
-<!--incorrect POS-->
-<!ELEMENT WrongPOS ( #PCDATA ) >
-<!ATTLIST WrongPOS WrittenPOS (Noun | Verb | Adjective | Adverb | OTHER) #REQUIRED >
-<!ATTLIST WrongPOS CorrectPOS (Noun | Verb | Adjective | Adverb | OTHER) #REQUIRED >
 
 <!--mark only nouns with some wrong dependency-->
 <!ELEMENT Noun ( #PCDATA ) >
@@ -32,17 +26,10 @@
 <!ATTLIST Adj PrepError (MissingPreposition | IncorrectPreposition | ExtraPreposition) #IMPLIED >
 
 <!--verbs with wrong dependency-->
-<!ELEMENT Aux (#PCDATA) >
-<!ATTLIST Aux WrittenForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
-<!ATTLIST Aux CorrectForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
-<!ATTLIST Aux WrittenTense (present | past | future) #IMPLIED >
-
 <!ELEMENT Verb ( #PCDATA ) >
 <!ATTLIST Verb MissingSubj (yes | no) #REQUIRED "no" >
 <!ATTLIST Verb PrepError (MissingPreposition | IncorrectPreposition | ExtraPreposition) #IMPLIED >
-<!ATTLIST Verb WrittenForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
-<!ATTLIST Verb CorrectForm (3rd sg | bare | en/ed | ing | OTHER) #IMPLIED >
-<!ATTLIST Verb WrittenTense (present | past | future) #IMPLIED > <!--with future, select only the verb, not the modal; for SVDisagreement only-->
+<!ATTLIST Verb TenseOrFormError (Tense | Form) #IMPLIED >
 
 <!--link between noun and verb-->
 <!ELEMENT SVDisagreement EMPTY >
@@ -75,5 +62,8 @@
 
 <!--one tag for misspellings-->
 <!ELEMENT Misspelling ( #PCDATA ) >
-<!ATTLIST Misspelling Error (VowelsIssues | Homophone | SegmentVoicing | Cognate | OTHER) #REQUIRED >
+<!ATTLIST Misspelling Error (VowelsIssues | Homophone | SegmentVoicing | Cognate | OTHER) #REQUIRED "OTHER" >
 
+<!--for any other errors-->
+<!ELEMENT UsageError ( #PCDATA ) >
+<!ATTLIST UsageError ErrorType (Wrong POS | Pronoun gender | OTHER) #REQUIRED >
