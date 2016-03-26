@@ -216,20 +216,17 @@ class Pool(object):
         return res
 
 if __name__ == '__main__':
-    DClasses = ["KOR",  "DEU",  "TUR",  "ZHO",  "TEL",  "ARA", "SPA", "HIN", "JPN", "FRA", "ITA"]
+    DClasses = ["ZHO",  "TEL",  "ARA", "SPA", "HIN", "FRA"]
     
     classified_as = {
-        'KOR':[],
-        'DEU':[],
-        'TUR':[],
+
         'ZHO':[],
         'TEL':[],
         'ARA':[],
         'SPA':[],
         'HIN':[],
-        'JPN':[],
         'FRA':[],
-        'ITA':[]}
+}
 
     base = "toefl11_part/train/"
     p = Pool()
@@ -250,17 +247,14 @@ if __name__ == '__main__':
             
             print('{0}: {1} files in test set\n-------------------------\n'.format(lang,num_files),file=f)
             prob_per_lang = {
-                'KOR':0,
-                'DEU':0,
-                'TUR':0,
+
                 'ZHO':0,
                 'TEL':0,
                 'ARA':0,
                 'SPA':0,
                 'HIN':0,
-                'JPN':0,
                 'FRA':0,
-                'ITA':0}
+}
             for file in classified_as[lang]:
                 # print the top three possibilities
                 #print('{0:<15}: {1:15}, {2:15}, {3:15}'.format(file[0],str(file[1][0]),str(file[1][1]),str(file[1][2])))

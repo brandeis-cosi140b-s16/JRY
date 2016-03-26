@@ -60,7 +60,7 @@ if __name__ == '__main__':
 	
 	prompts_per_lang = [0,0,0,0,0,0,0,0,0,0,0]
 	
-	n = 4
+	n = 2
 	
 	for prompt in all:
 		for entry in prompt:
@@ -101,17 +101,12 @@ if __name__ == '__main__':
 		prompts_per_lang = [0,0,0,0,0,0,0,0,0,0,0]
 
 	write_split_to_csv('ara',ara)
-	write_split_to_csv('deu',deu)
 	write_split_to_csv('fra',fra)
 	write_split_to_csv('hin',hin)
-	write_split_to_csv('ita',ita)
-	write_split_to_csv('jpn',jpn)
-	write_split_to_csv('kor',kor)
 	write_split_to_csv('spa',spa)
 	write_split_to_csv('tel',tel)
-	write_split_to_csv('tur',tur)
 	write_split_to_csv('zho',zho)
 	
-	langs = ['ara','deu','fra','hin','ita','jpn','kor','spa','tel','tur','zho']
+	langs = ['ara','fra','hin','spa','tel','zho']
 	for lang in langs:
 		copy_file_to_setdir(lang)
