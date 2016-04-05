@@ -1,0 +1,61 @@
+<!ENTITY name "L1ML_v1.0">
+
+<!-- This tag is to mark if a copula is not present in the text; tag the white space! -->
+<!ELEMENT MissingCopula ( #PCDATA ) >
+<!ATTLIST MissingCopula id ID prefix="MCop" #REQUIRED > 
+<!ATTLIST MissingCopula CorrectForm CDATA #REQUIRED > 
+
+<!--mark only nouns with some wrong dependency-->
+<!ELEMENT Noun ( #PCDATA ) >
+<!ATTLIST Noun PrepError (MissingPreposition | IncorrectPreposition | ExtraPreposition) #IMPLIED >
+<!ATTLIST Noun DetError (MissingDeterminer | IncorrectDeterminer | ExtraDeterminer) #IMPLIED >
+<!ATTLIST Noun PlError (NeedsToBePlural | NeedsToBeSingular) #IMPLIED >
+<!ATTLIST Noun GenderError (Yes | No) #IMPLIED "No" > 
+
+<!--determiners-->
+<!ELEMENT Determiner ( #PCDATA ) > 
+<!ATTLIST Determiner CorrectForm (a | an | the | some | this | that | these | those | NUMBER | POSSESSIVE | OTHER) #IMPLIED >
+<!ATTLIST Determiner OtherCorrectForm CDATA #IMPLIED > 
+
+<!--adjective-->
+<!ELEMENT Adj ( #PCDATA ) >
+<!ATTLIST Adj PrepError (MissingPreposition | IncorrectPreposition | ExtraPreposition) #IMPLIED >
+
+<!--verbs with wrong dependency-->
+<!ELEMENT Verb ( #PCDATA ) >
+<!ATTLIST Verb MissingSubj (yes | no) #REQUIRED "no" >
+<!ATTLIST Verb PrepError (MissingPreposition | IncorrectPreposition | ExtraPreposition) #IMPLIED >
+<!ATTLIST Verb TenseOrFormError (Tense | Form) #IMPLIED >
+
+<!--preposition stuff-->
+<!ELEMENT Preposition ( #PCDATA ) >
+<!ATTLIST Preposition CorrectPreposition CDATA #IMPLIED >
+
+<!--punctuation-->
+<!ELEMENT AwkwardPunctuation ( #PCDATA ) >
+<!ATTLIST AwkwardPunctuation id ID prefix="AwkPunc" #REQUIRED > 
+
+<!--one tag for misspellings-->
+<!ELEMENT Misspelling ( #PCDATA ) >
+<!ATTLIST Misspelling Error (VowelsIssues | Homophone | SegmentVoicing | Cognate | MissingSpace | OTHER) #REQUIRED "OTHER" >
+
+<!--for any other errors-->
+<!ELEMENT UsageError ( #PCDATA ) >
+<!ATTLIST UsageError ErrorType (Wrong POS | LexicalError | OTHER) #REQUIRED "OTHER" >
+
+<!--link tags-->
+<!ELEMENT DetNounLink EMPTY >
+<!ATTLIST DetNounLink id ID prefix="DNL" #REQUIRED > 
+<!ATTLIST DetNounLink arg0 IDREF prefix="article" #REQUIRED >
+<!ATTLIST DetNounLink arg1 IDREF prefix="noun" #REQUIRED >
+
+<!--link between noun and verb-->
+<!ELEMENT SVDisagreement EMPTY >
+<!ATTLIST SVDisagreement id ID prefix="SVD" #REQUIRED > 
+<!ATTLIST SVDisagreement arg0 IDREF prefix="subject" #REQUIRED > 
+<!ATTLIST SVDisagreement arg1 IDREF prefix="verb" #REQUIRED >
+
+<!ELEMENT PrepositionLink EMPTY >
+<!ATTLIST PrepositionLink id ID prefix="PrepL" #REQUIRED >
+<!ATTLIST PrepositionLink arg0 IDREF prefix="prep" #REQUIRED >
+<!ATTLIST PrepositionLink arg1 IDREF prefix="mother" #REQUIRED > 
