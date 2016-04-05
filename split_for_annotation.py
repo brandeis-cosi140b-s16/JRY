@@ -106,7 +106,8 @@ if __name__ == '__main__':
 	write_split_to_csv('spa',spa)
 	write_split_to_csv('tel',tel)
 	write_split_to_csv('zho',zho)
+	write_split_to_csv('jpn',jpn)
 	
-	langs = ['ara','fra','hin','spa','tel','zho']
+	langs = ['ara','fra','hin','spa','tel','zho','jpn']
 	for lang in langs:
 		copy_file_to_setdir(lang)
