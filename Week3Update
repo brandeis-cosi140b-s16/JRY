@@ -1,0 +1,24 @@
+L1ML: Week 3 Update
+Written by: Ryan Nicoll
+
+We've decided that we'll be using a Naive Bayes Classifier as our machine learning algorithm. Given that Naive Bayes
+a la "bag of words" was our baseline, we've decided to see if the features we extract from our marked-up data will 
+improve upon this baseline metric. To be determined is how to extract these features, although we will probably do so manually
+during adjudication (?) 
+
+In terms of the universe of languages we're going to include, we've added back in Japanese to make our universe Arabic, French,
+Hindi, Spanish, Telugu, Chinese, and Japanese (7 languages in total). This is as we are curious if our features will allow
+for robust classification between Chinese and Japanese, which the baseline bag of words encountered difficulty with. For each
+language, we will have 16 marked-up documents (with slightly more for Arabic). 
+
+In terms of annotations we've received, we have the entire set for Arabic, waiting on some for Hindi, waiting on some for
+French, and the rest are pending. 
+
+We as a group have conferenced all week over messenger and have met to discuss our progress as well as our data. We will be
+meeting in the next week to take a look at our data (and hopefully begin the adjudication process).
+
+I'm still a fan of the colors in MAE :) 
+
+
+
+
