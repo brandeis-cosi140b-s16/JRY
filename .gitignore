@@ -7,3 +7,5 @@ toefl11_part/dev
 toefl11_part/test
 *.txt.xml
 *.zip
+gold-standard/all
+gold-standard/annotated
