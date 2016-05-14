@@ -1,23 +1,35 @@
-\BOOKMARK [1][-]{section.1}{Paper}{}% 1
-\BOOKMARK [1][-]{section.2}{General Instructions}{}% 2
-\BOOKMARK [1][-]{section.3}{Page Numbering}{}% 3
-\BOOKMARK [1][-]{section.4}{Headings / Level 1 Headings}{}% 4
-\BOOKMARK [2][-]{subsection.4.1}{Level 2 Headings}{section.4}% 5
-\BOOKMARK [3][-]{subsubsection.4.1.1}{Level 3 Headings}{subsection.4.1}% 6
-\BOOKMARK [1][-]{section.5}{Citing References in the Text}{}% 7
-\BOOKMARK [2][-]{subsection.5.1}{Bibliographical References}{section.5}% 8
-\BOOKMARK [2][-]{subsection.5.2}{Language Resource References}{section.5}% 9
-\BOOKMARK [3][-]{subsubsection.5.2.1}{When Citing Language Resources}{subsection.5.2}% 10
-\BOOKMARK [3][-]{subsubsection.5.2.2}{When Not Citing Any Language Resource}{subsection.5.2}% 11
-\BOOKMARK [1][-]{section.6}{Figures \046 Tables}{}% 12
-\BOOKMARK [2][-]{subsection.6.1}{Figures}{section.6}% 13
-\BOOKMARK [2][-]{subsection.6.2}{Tables}{section.6}% 14
-\BOOKMARK [1][-]{section.7}{Footnotes}{}% 15
-\BOOKMARK [1][-]{section.8}{Copyrights}{}% 16
-\BOOKMARK [1][-]{section.9}{Conclusion}{}% 17
-\BOOKMARK [1][-]{section.10}{Acknowledgements}{}% 18
-\BOOKMARK [1][-]{section.11}{Providing References}{}% 19
-\BOOKMARK [2][-]{subsection.11.1}{Bibliographical References}{section.11}% 20
-\BOOKMARK [2][-]{subsection.11.2}{Language Resource References}{section.11}% 21
-\BOOKMARK [1][-]{section.12}{Bibliographical References}{}% 22
-\BOOKMARK [1][-]{section.13}{Language Resource References}{}% 23
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Related Work}{}% 2
+\BOOKMARK [1][-]{section.3}{Experimental Setup}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Corpus}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Annotation}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Adjudication and Gold Standard}{section.3}% 6
+\BOOKMARK [1][-]{section.4}{Results}{}% 7
+\BOOKMARK [2][-]{subsection.4.1}{Inter-Annotator Agreement}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.2}{Feature Extraction}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.3}{Machine Learning Baseline}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.4}{Most Salient Features}{section.4}% 11
+\BOOKMARK [1][-]{section.5}{Discussion and Conclusion}{}% 12
+\BOOKMARK [1][-]{section.6}{Paper}{}% 13
+\BOOKMARK [1][-]{section.7}{General Instructions}{}% 14
+\BOOKMARK [1][-]{section.8}{Page Numbering}{}% 15
+\BOOKMARK [1][-]{section.9}{Headings / Level 1 Headings}{}% 16
+\BOOKMARK [2][-]{subsection.9.1}{Level 2 Headings}{section.9}% 17
+\BOOKMARK [3][-]{subsubsection.9.1.1}{Level 3 Headings}{subsection.9.1}% 18
+\BOOKMARK [1][-]{section.10}{Citing References in the Text}{}% 19
+\BOOKMARK [2][-]{subsection.10.1}{Bibliographical References}{section.10}% 20
+\BOOKMARK [2][-]{subsection.10.2}{Language Resource References}{section.10}% 21
+\BOOKMARK [3][-]{subsubsection.10.2.1}{When Citing Language Resources}{subsection.10.2}% 22
+\BOOKMARK [3][-]{subsubsection.10.2.2}{When Not Citing Any Language Resource}{subsection.10.2}% 23
+\BOOKMARK [1][-]{section.11}{Figures \046 Tables}{}% 24
+\BOOKMARK [2][-]{subsection.11.1}{Figures}{section.11}% 25
+\BOOKMARK [2][-]{subsection.11.2}{Tables}{section.11}% 26
+\BOOKMARK [1][-]{section.12}{Footnotes}{}% 27
+\BOOKMARK [1][-]{section.13}{Copyrights}{}% 28
+\BOOKMARK [1][-]{section.14}{Conclusion}{}% 29
+\BOOKMARK [1][-]{section.15}{Acknowledgements}{}% 30
+\BOOKMARK [1][-]{section.16}{Providing References}{}% 31
+\BOOKMARK [2][-]{subsection.16.1}{Bibliographical References}{section.16}% 32
+\BOOKMARK [2][-]{subsection.16.2}{Language Resource References}{section.16}% 33
+\BOOKMARK [1][-]{section.17}{Bibliographical References}{}% 34
+\BOOKMARK [1][-]{section.18}{Language Resource References}{}% 35
