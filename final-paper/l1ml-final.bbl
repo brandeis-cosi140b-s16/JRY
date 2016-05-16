@@ -1,26 +1,26 @@
 \begin{thebibliography}{}
 
+\bibitem[\protect\citename{Blanchard \bgroup et al.\egroup
+  }2013]{toefl11-report}
+Blanchard, D., Tetreault, J., Higgins, D., Cahill, A., and Chodorow, M.
+\newblock (2013).
+\newblock Toefl11: A corpus of non-native english.
+\newblock RR 13-14, Educational Testing Service, Princeton, New Jersey.
+
 \bibitem[\protect\citename{Castor and Pollux}1992]{CastorPollux-92}
 Castor, A. and Pollux, L.~E.
 \newblock (1992).
 \newblock The use of user modelling to guide inference and learning.
 \newblock {\em Applied Intelligence}, 2(1):37--53.
 
-\bibitem[\protect\citename{Strötgen and Gertz}2012]{Martin-90}
-Strötgen, J. and Gertz, M.
+\bibitem[\protect\citename{Tetreault \bgroup et al.\egroup
+  }2012]{Tetreault-2013}
+Tetreault, J., Blanchard, D., Cahill, A., and Chodorow, M.
 \newblock (2012).
-\newblock Temporal tagging on different domains: Challenges, strategies, and
-  gold standards.
-\newblock In Nicoletta Calzolari~(Conference Chair), et~al., editors, {\em
-  Proceedings of the Eight International Conference on Language Resources and
-  Evaluation (LREC'12)}, pages 3746--3753, Istanbul, Turkey, may. European
-  Language Resource Association (ELRA).
-
-\bibitem[\protect\citename{Superman \bgroup et al.\egroup
-  }2000]{Superman-Batman-Catwoman-Spiderman-00}
-Superman, S., Batman, B., Catwoman, C., and Spiderman, S.
-\newblock (2000).
-\newblock {\em Superheroes experiences with books}.
-\newblock The Phantom Editors Associates, Gotham City, 20th edition.
+\newblock Native tongues, lost and found: Resources and empirical evaluations
+  in native language identi?cation.
+\newblock In {\em Proceedings of COLING 2012: Technical Papers}, pages
+  2585--2602, Mumbai, India, December. International Conference on
+  Computational Linguistics (COLING).
 
 \end{thebibliography}
