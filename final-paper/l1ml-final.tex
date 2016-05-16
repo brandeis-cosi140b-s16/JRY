@@ -1,7 +1,6 @@
 \documentclass[10pt, a4paper]{article}
 \usepackage{lrec2016}
-\usepackage{multibib}
-\newcites{languageresource}{Language Resources}
+\usepackage[T1]{fontenc}
 \usepackage{graphicx}
 % for eps graphics
 
@@ -74,6 +73,35 @@ Annotators were initially briefed on the initial specification during a meeting 
 \subsection{Feature Extraction}
 
 \subsection{Machine Learning Baseline\label{sec:ml-baseline}}
+In Table~\ref{table:baseline}, 
+
+\begin{table}[!h]
+	\begin{center}
+		\begin{tabular}{r|c|c|c|c|c|c|c}	
+			\multicolumn{8}{c}{\textbf{Confusion matrix}}\\
+			~&ara & fra & hin & jpn & spa & tel & zho\\
+			\hline
+			ara & <.> & 1 & . & . & 1 & . & . \\
+			fra & . & <.> & . & . & . & . & . \\
+			hin & . & 1 & <.> & . & . & . & . \\
+			jpn & 1 & . & . & <1> & . & . & . \\
+			spa & . & . & 1 & . & <.> & . & . \\
+			tel & . & 1 & 2 & 2 & 2 & <2> & 3 \\
+			zho & 2 & . & . & . & . & . & <.> \\
+			
+			\multicolumn{8}{c}{\textbf{Measures}}\\
+			ara & \multicolumn{4}{l}{\textit{Precision}: 0.000} & \multicolumn{3}{l}{\textit{Recall}: 0.000}	\\
+			fra & \multicolumn{4}{l}{\textit{Precision}: ---} & \multicolumn{3}{l}{\textit{Recall}: 0.000}	\\
+			hin & \multicolumn{4}{l}{\textit{Precision}: 0.000} & \multicolumn{3}{l}{\textit{Recall}: 0.000}	\\
+			jpn & \multicolumn{4}{l}{\textit{Precision}: 0.500} & \multicolumn{3}{l}{\textit{Recall}: 0.333}	\\
+			spa & \multicolumn{4}{l}{\textit{Precision}: 0.000} & \multicolumn{3}{l}{\textit{Recall}: 0.000}	\\
+			tel & \multicolumn{4}{l}{\textit{Precision}: 0.167} & \multicolumn{3}{l}{\textit{Recall}: 1.000}	\\
+			zho & \multicolumn{4}{l}{\textit{Precision}: 0.000} & \multicolumn{3}{l}{\textit{Recall}: 0.000}	\\
+			\multicolumn{4}{c}{\textit{Accuracy}: 0.150} & \multicolumn{4}{l}{\textit{Macro-averaged }$F_1$: 0.127} 
+		\end{tabular}
+		\caption{Baseline classifier using 106 documents, omitting annotations and names of countries and places\label{table:baseline}}
+	\end{center}
+\end{table}
 
 \subsection{Most Salient Features}
 
@@ -137,16 +165,6 @@ name, then it is only necessary to put the date in parentheses:
 separated with a semicolon: \cite{Martin-90,CastorPollux-92}. When the reference
 has more than three authors, only cite the name of the first author followed by
 et al. (e.g. \cite{Superman-Batman-Catwoman-Spiderman-00}).
-
-\subsection{Language Resource References}
-
-\subsubsection{When Citing Language Resources}
-
-When mentioning language resources, we recommend that they are cited in
-a similar way to bibliographical references, except that, in order to make them
-appear in a separate section, you need to use the
-\texttt{\\citelanguageresource} tag. Thus, a language resource should be cited
-as \citelanguageresource{speecon}.
 
 
 \subsubsection{When Not Citing Any Language Resource}
@@ -332,10 +350,5 @@ language resources, the following steps need to be performed:
 \bibliographystyle{lrec2016}
 \bibliography{l1ml-final}
 
-
-\section{Language Resource References}
-\label{lr:ref}
-\bibliographystylelanguageresource{lrec2016}
-\bibliographylanguageresource{l1ml-final}
 
 \end{document}
