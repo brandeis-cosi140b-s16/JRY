@@ -4,6 +4,8 @@
 \usepackage{graphicx}
 % for eps graphics
 
+\usepackage{rotating}
+
 \usepackage{epstopdf}
 \usepackage[latin1]{inputenc}
 
@@ -69,6 +71,21 @@ Annotators were initially briefed on the initial specification during a meeting 
 \section{Results}
 
 \subsection{Inter-Annotator Agreement}
+
+\begin{table*}[ht]
+	\begin{tabular}{r|llp{1.25cm}p{1.25cm}p{1.1cm}lllll}
+		& Overall  & Misspelling & Missing\newline Copula & Awkward Punc & Usage Error & Adjective & Det & Prep & Noun    & Verb      \\\hline
+		All      & 0.4458      & 0.8239         & ~0.2902              & ~0.0240       & ~0.0027    & -0.0010     & 0.0790       & ~0.0602  & 0.2068 & 0.1846 \\
+		Arabic   & 0.3297      & 0.8508         & -0.0001             & -0.0006     & -0.0087   & -0.0026    & 0.0883      & ~0.1696  & 0.2112 & 0.2771 \\
+		French   & 0.4282      & 0.7147         & -0.0001             & -0.0003     & -0.0042   & -0.0009    & 0.0426      & ~0.0188  & 0.1842 & 0.2818 \\
+		Hindi    & 0.4062      & 0.7610          & ~0.3075              & -0.0007     & -0.0039   & -0.0016    & 0.0019      & -0.0024 & 0.1412 & 0.1635 \\
+		Japanese & 0.5044      & 0.8619         & -0.0001             & ~0.1247      & -0.0054   & -0.0013    & 0.0797      & ~0.0430   & 0.2685 & 0.1607 \\
+		Spanish  & 0.6560       & 0.9170          & ~0.0000                   & -0.0002     & -0.0075   & -0.0007    & 0.1263      & -0.0022 & 0.1737 & 0.1056 \\
+		Telugu   & 0.3665      & 0.6209         & ~0.0000                  & -0.0006     & ~0.3918    & -0.0008    & 0.1292      & ~0.1390   & 0.1953 & 0.0791 \\
+		Chinese  & 0.5176      & 0.9105         & ~0.5832              & ~0.2499      & -0.0053   & -0.0007    & 0.0700        & ~0.0294  & 0.2329 & 0.2038
+	\end{tabular}
+\caption{Inter-annotator agreement scores by tag\label{table:iaa}}
+\end{table*}
 
 \subsection{Feature Extraction}
 
