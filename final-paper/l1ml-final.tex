@@ -105,6 +105,34 @@ In Table~\ref{table:baseline},
 
 \subsection{Most Salient Features}
 
+\begin{table}[!h]
+	\begin{center}
+		\begin{tabular}{r|c|c|c|c|c|c|c}	
+			\multicolumn{8}{c}{\textbf{Confusion matrix}}\\
+			~&ara & fra & hin & jpn & spa & tel & zho\\
+			\hline
+			ara & <1> & 1 & . & . & . & . & . \\
+			fra & . & <.> & 1 & . & . & . & . \\
+			hin & . & . & <1> & . & . & . & . \\
+			jpn & . & 1 & . & <1> & 1 & . & 1 \\
+			spa & . & . & . & . & <1> & 1 & . \\
+			tel & 1 & . & . & . & . & <.> & . \\
+			zho & 1 & 1 & 1 & 2 & 1 & 1 & <2> \\
+			
+			\multicolumn{8}{c}{\textbf{Measures}}\\
+			ara & \multicolumn{4}{l}{\textit{Precision}: 0.300} & \multicolumn{3}{l}{\textit{Recall}: 0.333}	\\
+			fra & \multicolumn{4}{l}{\textit{Precision}: 0.000} & \multicolumn{3}{l}{\textit{Recall}: 0.000}	\\
+			hin & \multicolumn{4}{l}{\textit{Precision}: 1.000} & \multicolumn{3}{l}{\textit{Recall}: 0.333}	\\
+			jpn & \multicolumn{4}{l}{\textit{Precision}: 0.250} & \multicolumn{3}{l}{\textit{Recall}: 0.333}	\\
+			spa & \multicolumn{4}{l}{\textit{Precision}: 0.500} & \multicolumn{3}{l}{\textit{Recall}: 0.333}	\\
+			tel & \multicolumn{4}{l}{\textit{Precision}: 0.000} & \multicolumn{3}{l}{\textit{Recall}: 0.000}	\\
+			zho & \multicolumn{4}{l}{\textit{Precision}: 0.222} & \multicolumn{3}{l}{\textit{Recall}: 0.667}	\\
+			\multicolumn{4}{c}{\textit{Accuracy}: 0.300} & \multicolumn{4}{l}{\textit{Macro-averaged }$F_1$: 0.316} 
+		\end{tabular}
+		\caption{Baseline classifier using annotated data and Noun, Verb, and Misspelling errors as features \label{table:bestfeatures}}
+	\end{center}
+\end{table}
+
 \section{Discussion and Conclusion\label{sec:discussion}}
 
 \section{Paper}
