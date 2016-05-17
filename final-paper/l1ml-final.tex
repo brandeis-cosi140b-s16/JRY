@@ -46,7 +46,7 @@ The L1ML group seeks to capitalize on the errors of NN writers of English throug
 \subsection{Corpus}
 We have used the TOEFL11 corpus compiled by the Educational Testing Service for our research with some modifications to control for additional variables in testing and a reduction in the universe of languages (which we will called modified TOEFL7, or M-TOEFL7). The TOEFL, or Test of English as a Foreign Language, is an entrance examination akin to the SAT that measures the academic English ability of NN English speakers who wish to enter American universities. 
 
-The original TOEFL11 corpus is comprised of 12,100 open-response unstructured written answers from 11 different languages to 8 general, non-domain specific questions, such as: Do you agree or disagree with the following statement? Young people nowadays do not give enough time to helping their communities. Use specific reasons and examples to support your answer. Each essay is given a score from a low 0 to a high of 5 from three raters, which is then synthesized to produce a global essay score \cite{toefl11-report}. 
+The original TOEFL11 corpus is comprised of 12,100 open-response unstructured written answers from 11 different languages to 8 general, non-domain specific questions, such as: \textit{Do you agree or disagree with the following statement? Young people nowadays do not give enough time to helping their communities. Use specific reasons and examples to support your answer.} Each essay is given a score from a low 0 to a high of 5 from three raters, which is then synthesized to produce a global essay score \cite{toefl11-report}. 
 
 This corpus has several useful characteristics that make it especially applicable for this purpose. Perhaps the most important is that it has a wide variety of NN speakers from various L1s (whose L1s are already classified and encoded in the metadata) who are performing a standardized task. Previous researchers have noted the difficulty of compiling such a corpus and the paucity of data available for NLI research that allows for cross-L1 NLI classification \cite{toefl11-report}. Additionally, the TOEFL11 controls for language and prompt by taking a relatively even sampling per language and per prompt. However, it does not currently control for global essay score; consequently, the L1ML team set to modify the corpus to control for score and account for other variables salient to our markup goals. 
 
@@ -61,16 +61,42 @@ Given these observations, the L1ML group narrowed the purview of English profici
 
 Three annotators served as volunteers for our project. Annotators were MA candidates in Computational Linguistics enrolled in COSI 140: Natural Language Annotation for Machine Learning. Annotators had three weeks to annotate approximately 112 documents (16 documents for each of 7 languages) after a first week of annotation where major changes were made to the annotation specification and overall annotation process. The number of annotators was reduced to two due to major illness on the part of one of one annotator.
 
-Each annotator was provided with 2 to 3 languages per week, each separated into a folder of 16 documents delineated by the L1 of the writer. Annotators were also provided with copies of each of the 8 prompts, the annotation specification/guidelines, a copy of the .dtd file to load extent and link tags, and access to the L1ML group Dropbox and GitHub repositories. 
-Annotators were initially briefed on the initial specification during a meeting of COSI 140. However, this specification and certain key conventions changed somewhat from the first week of data processing (see discussion in Section~\ref{sec:discussion} for how this may have impacted our data collection scheme/results). 
+Each annotator was provided with 2 to 3 languages per week, each separated into a folder of 16 documents delineated by the L1 of the writer. Annotators were also provided with copies of each of the 8 prompts, the annotation specification/guidelines, a copy of the .dtd file to load extent and link tags, and access to the L1ML group Dropbox and GitHub\footnote{The GitHub repository is located at \url{https://github.com/brandeis-cosi140b-s16/L1ML}} repositories. 
+Annotators were initially briefed on the initial specification during a meeting of COSI 140. However, this specification and certain key conventions changed somewhat from the first week of data processing (see discussion in Section~\ref{sec:discussion} for how this may have impacted our data collection scheme/results). Annotations were performed in the Multi-document Annotation Environment (MAE)\footnote{MAE can be downloaded from \url{http://keighrim.github.io/mae-annotation/}}, which annotators could download and access from their personal computers. 
 
+Annotators were given an e-mail (Ryan?s) to direct pertinent questions to during the annotation process. Periodically, a summary of the answers to these questions would be sent out to all annotators via e-mail that summed up the answers to these questions. Answers to these questions (particularly those that clarified unclear information in the guidelines) were subsequently added to an updated version of the specification.
 
+Our annotations specification gave detailed guidelines on how to mark various errors. Errors were spread across several domains, each with their own extent tags (i.e., tags that consumed lexical items or phrases):
+
+\begin{itemize}
+	\item \textbf{Nouns}: nouns were encoded as extent tags [NOUN] and had attributes for issues with determiners, prepositions, and gender/number agreement. Determiners also had an extent tag [DETERMINER] with attributes to choose the correct determiner from a possible list.  
+	\item \textbf{Verbs}: Verbs were encoded as two extent tags -- one for verbs [VERB] and their auxiliaries and another to mark the presence of a missing copula [MISSINGCOPULA]. The VERB tag had attributes for a missing subject, problems with tense/form, and issues with prepositions. 
+	\item \textbf{Adjectives}: Predicative adjectives were encoded as extent tags [ADJ] and had attributes for prepositional issues.
+	\item \textbf{Other issues}: three extent tags for misspellings [MISSPELLING], incorrectly used punctuation [AWKWARDPUNCTUATION] and a global catch-all for any seemingly semantically/pragmatically bizarre phrasing [USAGE ERROR]
+\end{itemize}
+
+In addition to the above tags, several link tags were used to capture agreement and relations between \textbf{two lexical items}, often in the form of syntactic argument structure or dependency. 
+
+\begin{itemize}
+	\item \textbf{Determiner/noun agreement}: Determiner/noun agreement (or problems thereof) was encoded using the \textit{DetNounLink} link tag, which would link a determiner (if present) and its corresponding noun that it mismatched with.
+	\item \textbf{Subject/verb agreement}: Subject/verb agreement (or problems thereof) was encoded using the \textit{SVDisagreement} link tag, which would link a subject and its corresponding noun that it mismatched with. 
+	\item \textbf{Preposition/complement}: Issues with a preposition and the corresponding lexical item that selected for it were encoded using the \textit{PrepositionLink} link tag, which would link a preposition to the word that selected for its form. 
+\end{itemize}
+
+More specific information about the specification can be found within the document itself, which has been included on the L1ML group?s GitHub repository. 
+
+Underlying the specification and its choices is the idea of teasing out the \textit{intended utterance} behind a given sentence in the text. With an NN English sentence with grammatical errors, we posit that there was an underlying idea intended by the speaker that could have been expressed using grammatical English, and that, in using our specification, there should be an algorithmic approach to categorizing what that underlying intended utterance might have been. Our specification tells annotators to rely on their intuition as native speakers in tandem with evidence provided by other grammatical features in the sentence first for resolving grammatical errors and subsequently encoding them using L1ML; however, rules of thumb are given (i.e., if it is unclear whether an error is in the determiner or the noun [or in a head from any one of its dependents] encode it in the head) to resolve potentially ambiguous utterances and improve inter-annotator agreement.  
 
 \subsection{Adjudication and Gold Standard}
+The gold standard corpus is comprised of 106 documents (16 documents of Arabic, French, Spanish, Hindi, Chinese, and Japanese; 10 from Telugu) that was collated from 212 documents from two of our annotators. Each of the researchers in the L1ML team contributed to the adjudication process, following the specification as the guideline for deciding among the most appropriate tags. Using the adjudication protocol built into MAE, researchers chose the tags that most appropriately reflected the types of errors solicited from the L1ML specification. While more discussion on specific annotator experiences and agreement is to follow in Section~\ref{sec:iaa}, the majority of our gold standard (approximately 95\%) was built off of the errors captured by one annotator, who anecdotally reported following closely to the guideline and weekly updates. 
+
+Each researcher adjudicated between two to three language sets. These sets were then collated in order to form the gold standard corpus. Tags were incorporated if they followed along the guideline and discarded if they did not, even if there was agreement among the annotators (i.e., marking capitalization as errors, even though the guideline expressly says not to do this). 
 
 \section{Results}
 
-\subsection{Inter-Annotator Agreement}
+\subsection{Inter-Annotator Agreement\label{sec:iaa}}
+
+Inter-annotator agreement was calculated using Krippendorff's alpha, which was chosen based on its utility for sparsely annotated text and based on the fact that our data set was smaller than originally expected. This calculation was performed using the built-in alpha-$\mu$ calculator present in MAE. The scores for inter-annotator agreement between our two annotators on our gold standard corpus is included in Table~\ref{table:iaa}. Cross-tag and tag-level segmentation across the entire gold-standard and within languages was calculated. Given the relatively low numbers for our agreement, agreement among link tags was not calculated.  
 
 \begin{table*}[ht]
 	\begin{tabular}{r|llp{1.25cm}p{1.25cm}p{1.1cm}lllll}
@@ -87,10 +113,14 @@ Annotators were initially briefed on the initial specification during a meeting 
 \caption{Inter-annotator agreement scores by tag\label{table:iaa}}
 \end{table*}
 
-\subsection{Feature Extraction}
+Agreement for MISSPELLING tags was higher given its preprocessing---most spelling errors were pre-tagged using a proprietary spell-checker. However, this agreement did not approach perfect scores due to the fact that annotators were required to find other errors, such as errors in homophones and lexical usage that might not be picked up by a spell checker. 
+
+Other tags, not having been preprocessed, were concomitantly much lower. Apart from issues with the annotators and the specification (both of which will be expounded upon further in Section~\ref{sec:discussion}), there are several reasons why this may have been the case. First, many tags had partial overlap, rather than complete overlap, where the two annotators chose different spans of text of phrases of similar functions (i.e., one annotator chosen an entire verb and its modals and auxiliaries, while another just chose the ``main'' verb). Furthermore, a not-insignificant portion of tags (ADJ, AWKWARDPUNCTION, MISSINGCOPULA, and USAGEERROR) were used either highly infrequently or not at all in the gold standard corpus, leading to Krippendorff's alpha scores of 0 (or, bafflingly, even negative). 
 
 \subsection{Machine Learning Baseline\label{sec:ml-baseline}}
-In Table~\ref{table:baseline}, 
+Preliminary testing of the M-TOEFL7 corpus without additional markup showed strong results with a Naïve Bayes classifier alone. Indeed, a Naïve Bayes classifier has been shown to have a stronger performance and higher bias in smaller sets of data. 
+
+We trained our baseline classifier on 106 documents controlling for language. Data was divided into train : test data in an 8 : 2 ratio. The baseline results confusion matrix is shown below. To further control for possible over-biases in the baseline classifier, identifying information within the text (such as names of places or mentions of native language) were removed. 
 
 \begin{table}[!h]
 	\begin{center}
@@ -120,7 +150,9 @@ In Table~\ref{table:baseline},
 	\end{center}
 \end{table}
 
-\subsection{Most Salient Features}
+The baseline classifier's result of 0.15 with a macro-averaged F1 precision approximating 0.12 suggest that a bag of words approach hovers around chance with our data set. This is in contrast to its performance on the larger data set, where its overall accuracy hovered around 65-70\% per language. 
+
+\subsection{Feature Extraction and Most Salient Features}
 
 \begin{table}[!h]
 	\begin{center}
@@ -155,7 +187,7 @@ In Table~\ref{table:baseline},
 \section*{Acknowledgments}
 The authors would like to acknowledge Ariella Levine, Clay Riley, and Patricia Whitlock for their annotations of the M-TOEFL7 corpus.
 
-%\nocite{*}
+\nocite{*}
 \section{Bibliographical References}
 \label{main:ref}
 

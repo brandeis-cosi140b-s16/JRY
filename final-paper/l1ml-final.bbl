@@ -7,6 +7,50 @@ Blanchard, D., Tetreault, J., Higgins, D., Cahill, A., and Chodorow, M.
 \newblock Toefl11: A corpus of non-native english.
 \newblock RR 13-14, Educational Testing Service, Princeton, New Jersey.
 
+\bibitem[\protect\citename{Dale \bgroup et al.\egroup }2012]{dale-2012}
+Dale, R., Anisimoff, I., and Narroway, G.
+\newblock (2012).
+\newblock Hoo 2012: A report on the preposition and determiner error correction
+  shared task.
+\newblock In {\em The 7th Workshop on the Innovative Use of NLP for Building
+  Educational Applications}, pages 54--62, Montr\'eal, QC, Canada, June.
+  Association for Computational Linguistics (ACL).
+
+\bibitem[\protect\citename{Forman and Cohen}2004]{forman-2004}
+Forman, G. and Cohen, I.
+\newblock (2004).
+\newblock Learning from little: Comparison of classifiers given little
+  training.
+\newblock In {\em 8th European Conference on Principles and Practice of
+  Knowledge Discovery in Databases}, pages 161--172, Pisa, Italy, September.
+  Springer Berlin Heidelberg.
+
+\bibitem[\protect\citename{Malmasi and Dras}2014]{malmasi-2014}
+Malmasi, S. and Dras, M.
+\newblock (2014).
+\newblock Language transfer hypothesis with svm weights.
+\newblock In {\em Proceedings of the 2014 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 1385--1390, Doha, Qatar, October.
+  Association for Computational Linguistics (ACL).
+
+\bibitem[\protect\citename{Malmasi \bgroup et al.\egroup }2013]{malmasi-2013}
+Malmasi, S., Wang, S.-M.~J., and Dras, M.
+\newblock (2013).
+\newblock Nli shared task 2013: Mq submission.
+\newblock In {\em Proceedings of the Eighth Workshop on Innovative Use of NLP
+  for Building Educational Applications}, pages 124--133, Atlanta, Georgia,
+  June. Association for Computational Linguistics (ACL).
+
+\bibitem[\protect\citename{Tetreault \bgroup et al.\egroup
+  }2012]{Tetreault-2012}
+Tetreault, J., Blanchard, D., Cahill, A., and Chodorow, M.
+\newblock (2012).
+\newblock Native tongues, lost and found: Resources and empirical evaluations
+  in native language identification.
+\newblock In {\em Proceedings of COLING 2012: Technical Papers}, pages
+  2585--2602, Mumbai, India, December. International Conference on
+  Computational Linguistics (COLING).
+
 \bibitem[\protect\citename{Tetreault \bgroup et al.\egroup
   }2013]{Tetreault-2013}
 Tetreault, J., Blanchard, D., and Cahill, A.
@@ -15,5 +59,13 @@ Tetreault, J., Blanchard, D., and Cahill, A.
 \newblock In {\em Proceedings of the Eighth Workshop on Innovative Use of NLP
   for Building Educational Applications}, pages 48--47, Atlanta, Georgia, June.
   Association for Computational Linguistics (ACL).
+
+\bibitem[\protect\citename{Wang and Dras}2011]{wang-2011}
+Wang, S.-M.~J. and Dras, M.
+\newblock (2011).
+\newblock Exploiting parse structures for native language identi?cation.
+\newblock In {\em Proceedings of the 2011 Conference on Empirical Methods in
+  Natural Language Processing}, pages 1600--1610, Edinburgh, Scotland, UK,
+  July. Association for Computational Linguistics (ACL).
 
 \end{thebibliography}
