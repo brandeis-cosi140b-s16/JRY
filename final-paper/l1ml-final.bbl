@@ -7,20 +7,13 @@ Blanchard, D., Tetreault, J., Higgins, D., Cahill, A., and Chodorow, M.
 \newblock Toefl11: A corpus of non-native english.
 \newblock RR 13-14, Educational Testing Service, Princeton, New Jersey.
 
-\bibitem[\protect\citename{Castor and Pollux}1992]{CastorPollux-92}
-Castor, A. and Pollux, L.~E.
-\newblock (1992).
-\newblock The use of user modelling to guide inference and learning.
-\newblock {\em Applied Intelligence}, 2(1):37--53.
-
 \bibitem[\protect\citename{Tetreault \bgroup et al.\egroup
-  }2012]{Tetreault-2013}
-Tetreault, J., Blanchard, D., Cahill, A., and Chodorow, M.
-\newblock (2012).
-\newblock Native tongues, lost and found: Resources and empirical evaluations
-  in native language identi?cation.
-\newblock In {\em Proceedings of COLING 2012: Technical Papers}, pages
-  2585--2602, Mumbai, India, December. International Conference on
-  Computational Linguistics (COLING).
+  }2013]{Tetreault-2013}
+Tetreault, J., Blanchard, D., and Cahill, A.
+\newblock (2013).
+\newblock A report on the first native language identification shared task.
+\newblock In {\em Proceedings of the Eighth Workshop on Innovative Use of NLP
+  for Building Educational Applications}, pages 48--47, Atlanta, Georgia, June.
+  Association for Computational Linguistics (ACL).
 
 \end{thebibliography}
