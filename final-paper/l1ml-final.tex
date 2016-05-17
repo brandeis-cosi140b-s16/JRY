@@ -40,10 +40,13 @@ The study of native language identification (NLI) has been a recently growing ar
 The L1ML group seeks to capitalize on the errors of NN writers of English through additional annotation following the L1ML, a mark-up language that encodes errors in spelling, punctuation use, and in agreement among nouns, verbs, and other predicates and their corresponding determiners and prepositions. Specifically, we aim to suggest that the addition of annotation can provide robust, salient information that can improve on existing structural features.
 
 \section{Related Work}
+A comprehensive review of NLI literature is beyond the scope of this paper; however, we find it prudent to mention a few key academic highlights that have informed our research and steered the course of this project. 
+
+The 2013 NLI shared task used the TOEFL11 corpus (described in more detail in Section~\ref{sec:corpus}) which we have implemented in our own form for the purposes of this assignment. Furthermore, various research teams within the task used a litany of machine learning and feature extraction methods to train their classifiers, including part-of-speech n-grams, character unigrams, and spelling and grammatical errors. 
 
 \section{Experimental Setup}
 
-\subsection{Corpus}
+\subsection{Corpus\label{sec:corpus}}
 We have used the TOEFL11 corpus compiled by the Educational Testing Service for our research with some modifications to control for additional variables in testing and a reduction in the universe of languages (which we will called modified TOEFL7, or M-TOEFL7). The TOEFL, or Test of English as a Foreign Language, is an entrance examination akin to the SAT that measures the academic English ability of NN English speakers who wish to enter American universities. 
 
 The original TOEFL11 corpus is comprised of 12,100 open-response unstructured written answers from 11 different languages to 8 general, non-domain specific questions, such as: \textit{Do you agree or disagree with the following statement? Young people nowadays do not give enough time to helping their communities. Use specific reasons and examples to support your answer.} Each essay is given a score from a low 0 to a high of 5 from three raters, which is then synthesized to produce a global essay score \cite{toefl11-report}. 
@@ -153,6 +156,7 @@ We trained our baseline classifier on 106 documents controlling for language. Da
 The baseline classifier's result of 0.15 with a macro-averaged F1 precision approximating 0.12 suggest that a bag of words approach hovers around chance with our data set. This is in contrast to its performance on the larger data set, where its overall accuracy hovered around 65-70\% per language. 
 
 \subsection{Feature Extraction and Most Salient Features}
+Various combinations of error features were tested to determine the most useful added annotation data for improvement on the baseline. Using a tool to determine salient features built into the Natural Language Toolkit (NLTK), we determined that the features that provided the greatest improvement in training the Naïve Bayes classifier were counts of the tag attributes within Noun, Verb, and Misspelling tags contributed to a significant improvement in accuracy, precision, and recall for all languages. 
 
 \begin{table}[!h]
 	\begin{center}
@@ -182,10 +186,15 @@ The baseline classifier's result of 0.15 with a macro-averaged F1 precision appr
 	\end{center}
 \end{table}
 
+Other combinations, such as counts of all tags in general, presence/absence of various tags, count of attributes/links produced results with as high an accuracy.
+
 \section{Discussion and Conclusion\label{sec:discussion}}
+The first observation to be made is that our inter-annotator agreement did improve over time, as our specification was revised and the annotators became more familiar with the process, but it was never very good (removing MISSPELLING tags takes the overall agreement down to 15\%). However, between the two annotators, with one noticing one group of things and the other noting another, the gold standard turned out well. In the future, we should look at decreasing cognitive load for the annotators.
+
+Part of how we can reduce cognitive load is by reducing the number of tags or simplifying in some way. Some of them, extracted as features, did not add any useful information; others, like the binary presence or absence of link tags, actually hurt. 
 
 \section*{Acknowledgments}
-The authors would like to acknowledge Ariella Levine, Clay Riley, and Patricia Whitlock for their annotations of the M-TOEFL7 corpus.
+The authors would like to acknowledge Ariella Levine, Clay Riley, and Patricia Whitlock for their annotations of the M-TOEFL7 corpus, Keigh Rim for his work on MAE, and James Pustejovsky for introducing the authors to the world of annotation. All errors and mistakes are, of course, the responsibility of the authors.
 
 \nocite{*}
 \section{Bibliographical References}
